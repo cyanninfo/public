@@ -1,0 +1,68 @@
+﻿@page "/upload"
+@inject HttpClient Http
+@using Microsoft.AspNetCore.Components.Forms
+
+<PageTitle>EOS illustration</PageTitle>
+
+<div class="container mt-4">
+    <h2 class="display-4 text-primary">Formateur d'image personnalisée</h2>
+
+    <div class="mb-2">
+        <label for="texte" class="form-label">Texte à ajouter sur l’image :</label>
+        <input id="texte" type="text" @bind="texte" class="form-control" placeholder="Ecrire ici" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Image source :</label><br />
+        <InputFile OnChange="HandleFileSelected" class="form-control" />
+    </div>
+
+    @if (!string.IsNullOrEmpty(error))
+    {
+            <div class="alert alert-danger">@error</div>
+    }
+
+    @if (!string.IsNullOrEmpty(downloadUrl))
+    {
+            <div class="mt-4">
+                <h5>Image générée :</h5>
+                <img src="@downloadUrl" class="img-fluid mb-3 border rounded shadow-sm" style="max-width: 800px; height: auto;" />
+                <br />
+                <a href="@downloadUrl" download="image_transformee.png" class="btn btn-success">
+                    📥 Télécharger l'image
+                </a>
+            </div>
+    }
+</div>
+
+@code {
+    private string? downloadUrl;
+    private string? error;
+    private string texte = string.Empty;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        var content = new MultipartFormDataContent();
+        var streamContent = new StreamContent(file.OpenReadStream(10 * 1024 * 1024));
+        streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+
+        content.Add(streamContent, "imageFile", file.Name);
+        content.Add(new StringContent(texte), "texte");
+
+        var response = await Http.PostAsync("api/image/upload", content);
+        if (response.IsSuccessStatusCode)
+        {
+            var data = await response.Content.ReadAsByteArrayAsync();
+            var base64 = Convert.ToBase64String(data);
+            downloadUrl = $"data:image/png;base64,{base64}";
+            error = null;
+        }
+        else
+        {
+            downloadUrl = null;
+            error = await response.Content.ReadAsStringAsync();
+        }
+    }
+}

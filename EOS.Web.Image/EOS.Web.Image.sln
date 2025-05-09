@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EOS.Web.Image.Server", "Server\EOS.Web.Image.Server.csproj", "{255739E6-7E44-4151-B151-D9313E5D22F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EOS.Web.Image.Client", "Client\EOS.Web.Image.Client.csproj", "{EE040A1F-DF79-4A3C-B695-53473EB51773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EOS.Web.Image.Shared", "Shared\EOS.Web.Image.Shared.csproj", "{5644BE5E-F5C3-4E24-8C92-36FDF2E9717C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{255739E6-7E44-4151-B151-D9313E5D22F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255739E6-7E44-4151-B151-D9313E5D22F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255739E6-7E44-4151-B151-D9313E5D22F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255739E6-7E44-4151-B151-D9313E5D22F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE040A1F-DF79-4A3C-B695-53473EB51773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE040A1F-DF79-4A3C-B695-53473EB51773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE040A1F-DF79-4A3C-B695-53473EB51773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE040A1F-DF79-4A3C-B695-53473EB51773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5644BE5E-F5C3-4E24-8C92-36FDF2E9717C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5644BE5E-F5C3-4E24-8C92-36FDF2E9717C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5644BE5E-F5C3-4E24-8C92-36FDF2E9717C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5644BE5E-F5C3-4E24-8C92-36FDF2E9717C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
