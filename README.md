@@ -19,6 +19,9 @@ Ce projet met en œuvre l’architecture Blazor avec séparation Client / Server
 - ASP.NET Core
 - Razor Components
 
+#### ☁️ Déploiement
+Le projet est hébergé sur **Azure App Service** pour une mise à disposition publique.
+
 #### 📂 Structure
 - `Client` : Interface utilisateur (Blazor)
 - `Server` : API REST (ASP.NET Core)
